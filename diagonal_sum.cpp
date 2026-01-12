@@ -15,12 +15,8 @@ int main()
       
   for(i =0;i< n; i++){
       for( j=0; j< n; j++){
-         if(i == j){
-             cnt1 += arr[i][j];
-         }
-         if( i+j == n-1){
-             cnt2+= arr[i][i];
-         }
+             cnt1 += arr[i][i];
+             cnt2+= arr[i][n-i-1];
       }
   }
   
