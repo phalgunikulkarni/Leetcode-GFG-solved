@@ -2,7 +2,7 @@
 #include <vector>
 using namespace std;
 void insertionSort(vector<int>& arr) {
-    for (size_t i = 1; i < arr.size(); ++i) {
+    for (int i = 1; i < arr.size(); i++) {
         int copy = arr[i];
         int j = i - 1;
 
