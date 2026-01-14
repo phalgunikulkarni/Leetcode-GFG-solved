@@ -1,0 +1,34 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int pass,count = 0,n,index,last;
+    char start,end;
+    char arr[10];
+    int i=0;
+    
+    cin>>n;
+    for(i=0;i<n;i++){
+        cin>>arr[i];    
+    }
+    cin>>start>>end;
+    cin>>pass;
+    
+    for(i=0;i<n;i++){
+        if(start == arr[i])
+            index = i;
+        if(end == arr[i])
+            last = i;
+    }
+    int move = (index)? last-index: (n-index)+last;
+    while(count<=pass){
+        last = (index + move) % n;
+        start = arr[index];
+        end = arr[last];
+        count++;
+        index = last;
+    }
+    cout<<start<<"->"<<end;
+    return 0;
+}
