@@ -1,0 +1,35 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+void printAttachedTriangles(int size) {
+    
+    for (int i = size; i >= 1; --i) {
+        
+        for (int j = 0; j < size - i; ++j) {
+            cout << " ";
+        }
+        
+        for (int j = 0; j < 2 * i - 1; ++j) {
+            cout<<"*";
+        }
+        cout << endl;
+    }
+
+    for (int i = 2; i <= size ; ++i) {
+        for (int j = 0; j < size - i; ++j) {
+            cout << " ";
+        }
+        
+        for (int j = 0; j < 2 * i - 1; ++j) {
+             cout<<"*";
+        }
+        cout << endl;
+    }
+}
+
+int main() {
+    
+    int size = 4; 
+    printAttachedTriangles(size);
+    return 0;
+}
