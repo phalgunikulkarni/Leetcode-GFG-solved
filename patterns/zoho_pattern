@@ -1,0 +1,52 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+void printAttachedTriangles(string s) {
+    vector<char> v(s.begin(), s.end());
+    int size = v.size();
+    int t = 0;
+    char ch; 
+    
+    for (int i = size; i >= 1; --i) {
+        ch = v[t];
+        t++;
+        for (int j = 0; j < size - i; ++j) {
+            cout << " ";
+        }
+        
+        for (int j = 0; j < 2 * i - 1; ++j) {
+            if((j == 0) || (j == 2*i -2)){
+              cout << ch;  
+            }
+            else{
+                cout<<" ";
+            }
+        }
+        cout << endl;
+    }
+
+        t=size-1;
+    for (int i = 2; i <= size ; ++i) {
+        ch = v[--t];
+        for (int j = 0; j < size - i; ++j) {
+            cout << " ";
+        }
+        
+        for (int j = 0; j < 2 * i - 1; ++j) {
+            if((j == 0) || (j == 2*i -2)){
+              cout << ch;  
+            }
+            else{
+                cout<<" ";
+            }
+        }
+        cout << endl;
+        
+    }
+}
+
+int main() {
+    string s = "zoho";
+    printAttachedTriangles(s);
+    return 0;
+}
