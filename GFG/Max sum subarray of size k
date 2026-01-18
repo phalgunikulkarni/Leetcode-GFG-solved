@@ -1,0 +1,30 @@
+class Solution {
+  public:
+    int maxSubarraySum(vector<int>& arr, int k) {
+        int max_sum=0,temp_sum=0;
+        int n = arr.size();
+        
+        if(n < k){
+            return -1;
+        }
+        
+        if(n == k){
+            for(int i = 0; i < n; i++){
+                max_sum += arr[i];
+            }
+            return max_sum;
+        }
+        
+        for(int i=0; i < k; i++){
+            temp_sum += arr[i];
+        }
+        
+        max_sum = temp_sum;
+        for(int i = k; i < n; i++){
+            temp_sum += arr[i] - arr[i-k];
+            max_sum = max(max_sum , temp_sum);
+        }
+        
+        return max_sum;
+    }
+};
