@@ -1,0 +1,17 @@
+class Solution {
+public:
+    bool containsDuplicate(vector<int>& arr) {  
+    sort(arr.begin(),arr.end());
+    int left=0,right=1;
+    while(right<arr.size()){
+        if(arr[left]==arr[right]){
+            return true;
+        }
+        else{
+            left=right;
+            right++;
+        }
+    }
+       return false; 
+    }
+};
