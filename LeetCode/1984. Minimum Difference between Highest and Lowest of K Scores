@@ -1,0 +1,13 @@
+class Solution {
+public:
+    int minimumDifference(vector<int>& nums, int k) {
+        int res = INT_MAX, i =0, score = 0, n= nums.size();
+        sort(nums.begin(),nums.end());
+        while(i+k-1 < n){
+            score = nums[i+k-1] - nums [i];
+            res = min(res,score);
+            i++;
+        }
+        return res;
+    }
+};
