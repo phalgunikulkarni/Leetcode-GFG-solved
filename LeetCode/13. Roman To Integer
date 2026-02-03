@@ -1,0 +1,24 @@
+class Solution {
+public:
+    int romanToInt(string s) {
+        unordered_map<char,int> roman;
+        roman['I'] = 1, roman['V'] = 5,roman['X'] = 10,roman['L'] = 50,roman['C'] = 100,roman['D'] = 500,   roman['M'] = 1000;
+        char current = s[0], next;
+        int res = 0, i = 1;
+
+        while(i < s.size()){
+            next = s[i];
+            if(roman[current] < roman[next]){
+                res = res - roman[current];
+                current = next;
+            }
+            else{
+                res= res + roman[current];
+                current = next;
+            }
+            i++;
+        }
+        res += roman[current];
+        return res;
+    }
+};
