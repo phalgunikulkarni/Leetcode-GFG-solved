@@ -1,0 +1,6 @@
+#User function Template for python3
+a = int(input())
+b = int(input())
+c = input()
+res = str(a) * a + c + str(b) * b
+print(res)
