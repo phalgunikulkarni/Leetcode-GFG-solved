@@ -1,0 +1,19 @@
+class Solution {
+public:
+    string longestCommonPrefix(vector<string>& str) {
+        string first,last,common = "",mincommon = str[0];
+        int i = 0;
+
+        for(int ch=0;ch<str.size()-1;ch++){
+            first = str[ch];last = str[ch+1];
+
+            while(first[i] == last[i] && i < first.size() && i < last.size()){
+                common.push_back(first[i]);
+                i++;
+            }
+            mincommon = min(mincommon,common);
+            i=0;common = "";
+        }
+        return mincommon;
+    }
+};
