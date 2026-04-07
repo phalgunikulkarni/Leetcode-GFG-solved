@@ -1,0 +1,26 @@
+class Solution {
+  public:
+    int missingNum(vector<int>& arr) {
+        unordered_map<int,int> hash;
+        sort(arr.begin(),arr.end());
+        
+        for(int i = 0;i < arr.size();i++){
+            hash[arr[i]]++;
+        }
+        
+        int elem = 1;
+        for(int i = 0;i < hash.size();i++){
+            if(hash.find(elem) == hash.end()){
+                return elem;
+            }
+            elem++;
+        }
+        return arr[arr.size()-1] + 1;
+    }
+};
+
+I didnt get the n term sum approach for this.. but got xor approach logic! 
+
+do xor for arr[0] till last and 1 save it in xor1 var
+do xor for 1 to n(size of the array + 1) and save it in xor2 var
+now return xor1 ^ xor2
