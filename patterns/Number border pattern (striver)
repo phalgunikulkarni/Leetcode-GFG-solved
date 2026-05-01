@@ -1,0 +1,22 @@
+4444444
+4333334
+4322234
+4321234
+4322234
+4333334
+4444444
+#include <iostream>
+using namespace std;
+int main() {
+    int m = 4;
+    for(int i = 0;i <= 2*m-2;i++){
+        for(int j=0;j<=2*m-2;j++){
+        int top = i,bottom = j,left = (2*m -2)-i,right = (2*m - 2)-j;
+            int mindist = min(min(top,bottom),min(right,left));
+            cout<<m-mindist;
+        }
+        cout<<endl;
+    }
+    
+    return 0;
+}
