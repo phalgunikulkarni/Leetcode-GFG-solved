@@ -1,0 +1,27 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+#include<cmath>
+using namespace std;
+int armstrong(int n, int d){
+    int ld = 0,sum = 0;
+    while(n > 0){
+        ld = n % 10;
+        sum = sum + pow(ld,d);
+        n/=10;
+    }
+    return sum;
+}
+int main() {
+    int n = 153,dig = 0,arm = 0;
+    int num = n;
+    while(n > 0){        /// u can use int dig = to_string(n).length() to save time complexity...
+        dig++;
+        n/=10;
+    }
+    arm = armstrong(num,dig);
+    if(arm == num)
+    cout<<"Armstrong number";
+    else
+    cout<<"Not Armstrong";
+    return 0;
+}
