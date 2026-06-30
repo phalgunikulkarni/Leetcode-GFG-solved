@@ -1,0 +1,37 @@
+#include <bits/stdc++.h>
+using namespace std;
+void maxbit(vector<int>& a,int tar)
+{
+    int i =0,j = 0,sum = 0,count=0,k;
+    for(k = 0;k < a.size();k++){
+        sum+=a[k];
+        count++;
+        if(sum == tar){
+            break;
+        }
+    }
+    int maxi = count;
+    j = k;
+    while(j<a.size()){
+        sum += a[j];
+        count++;
+        if(sum > tar){
+            i++;j=i+1;
+            sum = a[i];
+            count = 1;
+        }
+        else if(sum < tar){
+            j++;
+        }
+        else{
+            maxi = max(count,maxi);
+        }
+    }
+    cout<<maxi;
+}
+int main() {
+	vector<int> a= {3, 2, 1};
+	int k = 6;
+	maxbit(a,k);
+    
+}
